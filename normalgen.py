@@ -9,7 +9,7 @@ activities = {}
 log = []
 hour = 3600
 deviation = 5
-mean_time = 20
+mean_time = 10
 
 
 def generate_trace(case_id, trace, offset):
@@ -50,7 +50,7 @@ def gen_log(instances):
 
         generate_trace(i, traces[0], offset)
 
-        offset += random.randrange(2, 8) * random.randrange(mean_time) * hour
+        offset += random.randrange(2, 5) * random.randrange(mean_time) * hour
 
     sorted_log = sorted(log, key=lambda event: event[2])
 

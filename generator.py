@@ -77,6 +77,16 @@ def generate_anomalies():
                             anom += random_pool[0] + " "
                         anom += trace[m] + " "
                     anom_traces.append(anom)
+        
+        # Early e Late
+        for i in range(len(trace)):
+            for j in range (len(trace)):
+                newt = trace.copy()
+                newt[i], newt[j] = newt[j], newt[i]
+                anom = ""
+                for act in newt:
+                    anom += act + " "
+                anom_traces.append(anom)
 
     my_set = set(anom_traces)
     anom_traces = list(my_set)

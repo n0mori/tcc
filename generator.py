@@ -78,9 +78,19 @@ def generate_anomalies():
                         anom += trace[m] + " "
                     anom_traces.append(anom)
         
+        # Reworks
+        for i in range(len(trace)):
+            for j in range(len(trace)):
+                anom = ""
+                for m in range(len(trace)):
+                    if m == j:
+                        anom += trace[i] + " "
+                    anom += trace[m] + " "
+                anom_traces.append(anom)
+        
         # Early e Late
         for i in range(len(trace)):
-            for j in range (len(trace)):
+            for j in range (0, len(trace)):
                 newt = trace.copy()
                 newt[i], newt[j] = newt[j], newt[i]
                 anom = ""

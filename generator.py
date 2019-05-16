@@ -55,15 +55,18 @@ def generate_anomalies():
         for i in range(len(trace)):
             for j in range(0, len(trace)):
                 for k in range(0, len(trace)):
-                    anom = []
+                    anom = ""
                     for m in range(0, len(trace)):
                         if i == m or j == m or k == m:
                             continue
-                        anom.append(trace[m])
+                        anom += trace[m] + " "
                     anom_traces.append(anom)
 
+    my_set = set(anom_traces)
+    anom_traces = list(my_set)
+
     for trace in anom_traces:
-        print(*trace, sep=' ')
+        print(trace)
     return anom_traces
 
 
@@ -77,5 +80,5 @@ mean_time = 10
 starting_date = 1557970191
 
 read_input()
-gen_log(5000)
-# anom_traces = generate_anomalies()
+#gen_log(5000)
+anom_traces = generate_anomalies()

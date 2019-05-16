@@ -12,7 +12,7 @@ deviation = 5
 mean_time = 10
 
 
-def generate_trace(case_id, trace, offset):
+def generate_trace(case_id, trace, offset, anomaly=False):
     for act in trace:
         elapsed_time = (activities[act] +
                         (random.randrange(-deviation, deviation)) * hour)

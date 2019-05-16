@@ -27,6 +27,17 @@ def read_input():
                 duration = mean_time + random.randrange(-deviation, deviation)
                 duration *= hour
                 activities[act] = duration
+                
+    f = open(sys.argv[2])
+    for line in f:
+        trace = line.rstrip().split(' ')
+        anom_traces.append(trace)
+
+        for act in trace:
+            if act not in activities:
+                duration = mean_time + random.randrange(-deviation, deviation)
+                duration *= hour
+                activities[act] = duration
 
 
 def print_log(sorted_log):
@@ -36,12 +47,23 @@ def print_log(sorted_log):
         print(event[0], event[1], date, sep=',')
 
 
-def gen_log(instances):
-    offset = starting_date
+def gen_log(instances, anomaly=0):
+    
+    anoms = [x for x in range(instances)]
+    random.shuffle(anoms)
+    thresh = int(instances * anomaly / 100)
+    anoms = anoms[:thresh]
+        
+    offset = starting_date    
     for i in range(1, instances):
+    
+        random.shuffle(anom_traces)
         random.shuffle(normal_traces)
 
-        generate_trace(i, normal_traces[0], offset)
+        if i in anoms:
+            generate_trace(i, anom_traces[0], offset)
+        else:
+            generate_trace(i, normal_traces[0], offset)
 
         offset += random.randrange(2, 5) * random.randrange(mean_time) * hour
 
@@ -50,7 +72,7 @@ def gen_log(instances):
     print_log(sorted_log)
 
 
-def generate_anomalies():
+def generate_anomalies(output=False):
     anom_traces = []
     for trace in normal_traces:
         # Skips
@@ -101,8 +123,9 @@ def generate_anomalies():
     my_set = set(anom_traces)
     anom_traces = list(my_set)
 
-    for trace in anom_traces:
-        print(trace)
+    if output:
+        for trace in anom_traces:
+            print(trace)
     return anom_traces
 
 
@@ -116,5 +139,5 @@ mean_time = 10
 starting_date = 1557970191
 
 read_input()
-#gen_log(5000)
-anom_traces = generate_anomalies()
+gen_log(5000, 10)
+#anom_traces = generate_anomalies()

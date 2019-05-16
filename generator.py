@@ -2,6 +2,8 @@ import sys
 import random
 import datetime
 
+def rotate (lst, n):
+    return lst[-n:] + lst[:-n]
 
 def generate_trace(case_id, trace, offset):
     for act in trace:
@@ -59,6 +61,20 @@ def generate_anomalies():
                     for m in range(0, len(trace)):
                         if i == m or j == m or k == m:
                             continue
+                        anom += trace[m] + " "
+                    anom_traces.append(anom)
+        
+        # Inserts
+        random_pool = ['DESENVOLVER', 'ENTREGAR', 'GERAR', 'PAGAMENTO']
+        for i in range(len(trace)):
+            for j in range(0, len(trace)):
+                for k in range(0, len(trace)):
+                    anom = ""
+                    random.shuffle(random_pool)
+                    for m in range(0, len(trace)):
+                        if i == m or j == m or k == m:
+                            random_pool = rotate(random_pool, 1)
+                            anom += random_pool[0] + " "
                         anom += trace[m] + " "
                     anom_traces.append(anom)
 

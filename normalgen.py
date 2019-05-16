@@ -1,18 +1,9 @@
 import sys
 import random
 import datetime
-import calendar
-import time
-
-traces = []
-activities = {}
-log = []
-hour = 3600
-deviation = 5
-mean_time = 10
 
 
-def generate_trace(case_id, trace, offset, anomaly=False):
+def generate_trace(case_id, trace, offset):
     for act in trace:
         elapsed_time = (activities[act] +
                         (random.randrange(-deviation, deviation)) * hour)
@@ -27,7 +18,7 @@ def read_input():
     f = open(sys.argv[1])
     for line in f:
         trace = line.rstrip().split(' ')
-        traces.append(trace)
+        normal_traces.append(trace)
 
         for act in trace:
             if act not in activities:
@@ -44,11 +35,11 @@ def print_log(sorted_log):
 
 
 def gen_log(instances):
-    offset = calendar.timegm(time.gmtime())
+    offset = starting_date
     for i in range(1, instances):
-        random.shuffle(traces)
+        random.shuffle(normal_traces)
 
-        generate_trace(i, traces[0], offset)
+        generate_trace(i, normal_traces[0], offset)
 
         offset += random.randrange(2, 5) * random.randrange(mean_time) * hour
 
@@ -57,9 +48,34 @@ def gen_log(instances):
     print_log(sorted_log)
 
 
-def main():
-    read_input()
-    gen_log(5000)
+def generate_anomalies():
+    anom_traces = []
+    for trace in normal_traces:
+        # Skips
+        for i in range(len(trace)):
+            for j in range(0, len(trace)):
+                for k in range(0, len(trace)):
+                    anom = []
+                    for m in range(0, len(trace)):
+                        if i == m or j == m or k == m:
+                            continue
+                        anom.append(trace[m])
+                    anom_traces.append(anom)
+
+    for trace in anom_traces:
+        print(*trace, sep=' ')
+    return anom_traces
 
 
-main()
+normal_traces = []
+anom_traces = []
+activities = {}
+log = []
+hour = 3600
+deviation = 5
+mean_time = 10
+starting_date = 1557970191
+
+read_input()
+gen_log(5000)
+# anom_traces = generate_anomalies()

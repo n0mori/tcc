@@ -139,5 +139,6 @@ mean_time = 10
 starting_date = 1557970191
 
 read_input()
-gen_log(5000, 10)
-#anom_traces = generate_anomalies()
+
+gen_log(5000, int(sys.argv[3]))
+#generate_anomalies(True)

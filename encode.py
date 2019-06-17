@@ -1,5 +1,8 @@
 #!/usr/bin/env python3.7
 
-from replearn import *
+import replearn
+import sys
 
-print("works")
+filename = sys.argv[1]
+vectorsize=16
+learn(filename,vectorsize)

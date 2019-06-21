@@ -1,8 +1,8 @@
 #!/usr/bin/env python3.7
 
-import replearn
-import sys
+import Trace2Vec as t2v
+import os
 
-filename = sys.argv[1]
 vectorsize=16
-learn(filename,vectorsize)
+for filename in os.listdir('logs/xes'):
+    t2v.learn(filename,vectorsize)

@@ -3,6 +3,7 @@ import loadXES
 import nltk
 from nltk.cluster.kmeans import KMeansClusterer
 from sklearn.cluster import AgglomerativeClustering
+from sklearn.svm import OneClassSVM
 
 def learn(folderName,vectorsize):
     documents = loadXES.get_doc_XES_tagged(folderName)
@@ -47,6 +48,10 @@ def cluster(folderName, vectorsize, clusterType):
     elif(clusterType=="HierWard"):
         ward = AgglomerativeClustering(n_clusters=NUM_CLUSTERS, linkage='ward').fit(vectors)
         assigned_clusters = ward.labels_
+    elif clusterType == "OCSVM":
+        ocsvm = OneClassSVM()
+        assigned_clusters = ocsvm.fit_predict(vectors)
+
     else:
         print(clusterType, " is not a predefined cluster type. Please use 'KMeans' or 'HierWard', or create a definition for ", clusterType)
         return

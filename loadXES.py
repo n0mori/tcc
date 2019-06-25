@@ -19,7 +19,7 @@ def get_doc_XES_tagged(filename):
 
     tree = etree.parse('logs/xes/'+filename)
     root= tree.getroot()
-    index=0
+    index=1
     for element in root.iter():
         tag= element.tag.split('}')[0]
         if(tag== "trace"):
@@ -77,7 +77,7 @@ def get_doc_multiple_XES_tagged(foldername):
     for filecounter,file in enumerate(file_list):
         tree = etree.parse(file)
         root= tree.getroot()
-        index=0
+        index=1
         for element in root.iter():
             tag= element.tag.split('}')[0]
             if(tag== "trace"):

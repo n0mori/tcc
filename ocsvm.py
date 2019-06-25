@@ -11,9 +11,10 @@ files = ['output/' + x for x in os.listdir('output') if re.search(r"\.model$", x
 for filename in files[:1]:
     model = Doc2Vec.load(filename)
     vectors = model.docvecs.vectors_docs
-    print(model.docvecs.distance(1,2))
-    svm = sk.OneClassSVM()
-    groups = list(svm.fit_predict(list(vectors)))
+    svm = sk.OneClassSVM(kernel='linear')
+    svm.fit(list(vectors))
+    print(svm.predict(vectors))
+    # print(filename, len(groups), groups.count(1), groups.count(-1))
     # word_vectors = read_wordvec('output/' + filename)
     # Trace2Vec.cluster(filename, vectorsize=16, clusterType="OCSVM")
     

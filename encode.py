@@ -1,9 +1,9 @@
 #!/usr/bin/env python3.7
 
-import Trace2Vec as t2v
 import os
+from reader import get_traces
+from gensim.models import Word2Vec
 
-vectorsize=16
-for filename in os.listdir('logs/'):
 
-    t2v.learn(filename,vectorsize)
+def train(filename):
+    traces = get_traces(filename)

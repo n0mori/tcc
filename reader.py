@@ -19,5 +19,3 @@ def get_traces(filename):
         print(phrase)
 
     return traces
-
-get_traces('logs/log1.csv')

@@ -2,6 +2,7 @@
 
 import csv
 
+
 def get_traces(filename):
     traces = {}
     with open(filename, 'r') as csvfile:
@@ -14,8 +15,7 @@ def get_traces(filename):
 
     phrases = []
     for v in traces.values():
-        phrase = " ".join([trace[0] for trace in v])
+        phrase = [trace[0] for trace in v]
         phrases.append(phrase)
-        print(phrase)
 
     return traces

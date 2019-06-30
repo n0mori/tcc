@@ -4,6 +4,7 @@ import os
 import re
 from reader import get_traces
 from gensim.models import Word2Vec
+import numpy as np
 
 
 def train(filename, epochs=15):
@@ -21,4 +22,22 @@ def train_batch():
             train(filenames)
 
 
-train_batch()
+def create_vectors(filename, vectors):
+    model = Word2Vec.load(filename)
+
+    trace_vectors = []
+    for trace in vectors:
+        v = np.array(model.wv[trace[0]])
+
+        for word in trace[1:]:
+            v = list(map(sum, zip(v, model.wv[word])))
+        vec = np.array(v)
+        vec = vec / len(trace)
+        trace_vectors.append(v)
+    return trace_vectors
+
+
+# train_batch()
+vectors = get_traces("logs/log1.csv")
+v = create_vectors("models/log1.model", vectors)
+print(v)

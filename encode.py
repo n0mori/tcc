@@ -4,6 +4,8 @@ import os
 import re
 from reader import get_traces
 from gensim.models import Word2Vec
+from sklearn.svm import OneClassSVM
+from scipy.spatial import distance
 import numpy as np
 
 
@@ -37,7 +39,17 @@ def create_vectors(filename, vectors):
     return trace_vectors
 
 
+def check_anomaly(vector, normal_traces):
+    return vector.join(" ") in normal_traces
+
+
 # train_batch()
-vectors = get_traces("logs/log1.csv")
-v = create_vectors("models/log1.model", vectors)
-print(v)
+vectors = get_traces("logs/log1_anom_all_5.csv")
+v = create_vectors("models/log1_anom_all_5.model", vectors)
+
+ocsvm = OneClassSVM(kernel='rbf', nu=0.05)
+classes = list(ocsvm.fit_predict(v))
+print(classes, classes.count(-1), classes.count(1))
+
+anom_cases = [k for k, x in enumerate(classes) if x == -1]
+print([vectors[i] for i in anom_cases])

@@ -4,8 +4,10 @@ import sys
 import random
 import datetime
 
-def rotate (lst, n):
+
+def rotate(lst, n):
     return lst[-n:] + lst[:-n]
+
 
 def generate_trace(case_id, trace, offset):
     for act in trace:
@@ -29,7 +31,7 @@ def read_input():
                 duration = mean_time + random.randrange(-deviation, deviation)
                 duration *= hour
                 activities[act] = duration
-                
+
     f = open(sys.argv[2])
     for line in f:
         trace = line.rstrip().split(' ')
@@ -50,15 +52,14 @@ def print_log(sorted_log):
 
 
 def gen_log(instances, anomaly=0):
-    
     anoms = [x for x in range(instances)]
     random.shuffle(anoms)
     thresh = int(instances * anomaly / 100)
     anoms = anoms[:thresh]
-        
-    offset = starting_date    
+
+    offset = starting_date
     for i in range(1, instances):
-    
+
         random.shuffle(anom_traces)
         random.shuffle(normal_traces)
 
@@ -87,7 +88,7 @@ def generate_anomalies(output=False):
                             continue
                         anom += trace[m] + " "
                     anom_traces.append(anom)
-        
+
         # Inserts
         random_pool = ['DESENVOLVER', 'ENTREGAR', 'GERAR', 'PAGAMENTO']
         for i in range(len(trace)):
@@ -101,7 +102,7 @@ def generate_anomalies(output=False):
                             anom += random_pool[0] + " "
                         anom += trace[m] + " "
                     anom_traces.append(anom)
-        
+
         # Reworks
         for i in range(len(trace)):
             for j in range(len(trace)):
@@ -111,10 +112,10 @@ def generate_anomalies(output=False):
                         anom += trace[i] + " "
                     anom += trace[m] + " "
                 anom_traces.append(anom)
-        
+
         # Early e Late
         for i in range(len(trace)):
-            for j in range (0, len(trace)):
+            for j in range(0, len(trace)):
                 newt = trace.copy()
                 newt[i], newt[j] = newt[j], newt[i]
                 anom = ""
@@ -143,4 +144,4 @@ starting_date = 1557970191
 read_input()
 
 gen_log(5000, int(sys.argv[3]))
-#generate_anomalies(True)
+# generate_anomalies(True)

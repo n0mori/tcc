@@ -18,4 +18,4 @@ def get_traces(filename):
         phrase = [trace[0] for trace in v]
         phrases.append(phrase)
 
-    return traces
+    return phrases

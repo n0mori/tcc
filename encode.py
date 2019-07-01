@@ -39,8 +39,9 @@ def create_vectors(filename, vectors):
     return trace_vectors
 
 
-def check_anomaly(vector, normal_traces):
-    return " ".join(vector) not in normal_traces
+def is_normal(vector, normal_traces):
+    # if true, it is a normal behaviour
+    return " ".join(vector) in normal_traces
 
 
 # train_batch()
@@ -52,9 +53,12 @@ classes = list(ocsvm.fit_predict(v))
 print(classes.count(-1), classes.count(1))
 
 anom_cases = [vectors[k] for k, x in enumerate(classes) if x == -1]
+normal_cases = [vectors[k] for k, x in enumerate(classes) if x == 1]
 
 normal_traces = [line.strip('\n') for line in open("normal_pn1.txt", 'r')]
 
-# teste = "SOLICITACAO AUTORIZACAO DISTR.DIRETORIA DISTR.SETOR ALT.SITUACAOP/EMEXECUCAO ALT.SITUACAOP/SUSPENSO CONCLUSAO".split(" ")
-# print(check_anomaly(teste, normal_traces))
-print([check_anomaly(t, normal_traces) for t in anom_cases])
+anom_checked = [is_normal(t, normal_traces) for t in anom_cases]
+normal_checked = [is_normal(t, normal_traces) for t in normal_cases]
+# print([k for k, x in enumerate(classes) if x == -1], [k for k, x in enumerate(classes) if x == 1])
+print("size:", len(anom_checked), "normal:", anom_checked.count(True), "anomaly:", anom_checked.count(False), [case for case in anom_cases if is_normal(case, normal_traces)])
+print("size:", len(normal_checked), "normal:", normal_checked.count(True), "anomaly:", anom_checked.count(False))

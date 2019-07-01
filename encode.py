@@ -40,7 +40,7 @@ def create_vectors(filename, vectors):
 
 
 def check_anomaly(vector, normal_traces):
-    return vector.join(" ") in normal_traces
+    return " ".join(vector) not in normal_traces
 
 
 # train_batch()
@@ -49,7 +49,12 @@ v = create_vectors("models/log1_anom_all_5.model", vectors)
 
 ocsvm = OneClassSVM(kernel='rbf', nu=0.05)
 classes = list(ocsvm.fit_predict(v))
-print(classes, classes.count(-1), classes.count(1))
+print(classes.count(-1), classes.count(1))
 
-anom_cases = [k for k, x in enumerate(classes) if x == -1]
-print([vectors[i] for i in anom_cases])
+anom_cases = [vectors[k] for k, x in enumerate(classes) if x == -1]
+
+normal_traces = [line.strip('\n') for line in open("normal_pn1.txt", 'r')]
+
+# teste = "SOLICITACAO AUTORIZACAO DISTR.DIRETORIA DISTR.SETOR ALT.SITUACAOP/EMEXECUCAO ALT.SITUACAOP/SUSPENSO CONCLUSAO".split(" ")
+# print(check_anomaly(teste, normal_traces))
+print([check_anomaly(t, normal_traces) for t in anom_cases])

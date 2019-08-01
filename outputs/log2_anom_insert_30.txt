@@ -1,0 +1,16 @@
+0.05
+1767 3232
+size: 1767 normal: 1767 anomaly: 0
+size: 3232 normal: 1732 anomaly: 1500
+0.1
+1767 3232
+size: 1767 normal: 1767 anomaly: 0
+size: 3232 normal: 1732 anomaly: 1500
+0.3
+1767 3232
+size: 1767 normal: 1767 anomaly: 0
+size: 3232 normal: 1732 anomaly: 1500
+0.5
+3499 1500
+size: 3499 normal: 3499 anomaly: 0
+size: 1500 normal: 0 anomaly: 1500

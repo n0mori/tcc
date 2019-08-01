@@ -12,3 +12,5 @@ Metade dos anomalos gerados ficaram para cada classe
 - [x] ~~Testar o word2vec na mão, é só isso que fizeram no act2vec.~~
 - [x] ~~Não utilizar XES, importar os csvs que eu fiz.~~
 - [] Criar uma base de teste? Nào foi feito, talvez não seja feito
+- [] Testar mais parâmetros do Word2Vec, talvez usar o Doc2Vec
+- [] Testar mais parâmetros da OCSVM, mas acho que os dados não estão bem separados

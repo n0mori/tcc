@@ -1,0 +1,16 @@
+0.05
+2376 2623
+size: 2376 normal: 1821 anomaly: 555
+size: 2623 normal: 1794 anomaly: 829
+0.1
+2376 2623
+size: 2376 normal: 1821 anomaly: 555
+size: 2623 normal: 1794 anomaly: 829
+0.3
+2376 2623
+size: 2376 normal: 1821 anomaly: 555
+size: 2623 normal: 1794 anomaly: 829
+0.5
+2376 2623
+size: 2376 normal: 1821 anomaly: 555
+size: 2623 normal: 1794 anomaly: 829

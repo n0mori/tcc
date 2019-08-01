@@ -1,0 +1,16 @@
+0.05
+2144 2855
+size: 2144 normal: 2144 anomaly: 0
+size: 2855 normal: 2105 anomaly: 750
+0.1
+2144 2855
+size: 2144 normal: 2144 anomaly: 0
+size: 2855 normal: 2105 anomaly: 750
+0.3
+2144 2855
+size: 2144 normal: 2144 anomaly: 0
+size: 2855 normal: 2105 anomaly: 750
+0.5
+2437 2562
+size: 2437 normal: 2144 anomaly: 293
+size: 2562 normal: 2105 anomaly: 457

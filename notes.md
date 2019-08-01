@@ -14,3 +14,4 @@ Metade dos anomalos gerados ficaram para cada classe
 - [] Criar uma base de teste? Nào foi feito, talvez não seja feito
 - [] Testar mais parâmetros do Word2Vec, talvez usar o Doc2Vec
 - [] Testar mais parâmetros da OCSVM, mas acho que os dados não estão bem separados
+- [] Testar supervisionado e comparar os resultados

@@ -1,0 +1,4 @@
+1
+479 4520
+size: 479 normal: 0 anomaly: 479
+size: 4520 normal: 4499 anomaly: 21

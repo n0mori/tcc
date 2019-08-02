@@ -1,0 +1,4 @@
+1
+285 4714
+size: 285 normal: 0 anomaly: 285
+size: 4714 normal: 4501 anomaly: 213

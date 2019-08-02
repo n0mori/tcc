@@ -1,0 +1,16 @@
+0.05
+251 4748
+size: 251 normal: 186 anomaly: 65
+size: 4748 normal: 4070 anomaly: 678
+0.1
+500 4499
+size: 500 normal: 379 anomaly: 121
+size: 4499 normal: 3877 anomaly: 622
+0.3
+1500 3499
+size: 1500 normal: 1058 anomaly: 442
+size: 3499 normal: 3198 anomaly: 301
+0.5
+2544 2455
+size: 2544 normal: 1910 anomaly: 634
+size: 2455 normal: 2346 anomaly: 109

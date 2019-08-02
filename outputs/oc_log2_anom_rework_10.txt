@@ -1,0 +1,16 @@
+0.05
+2284 2715
+size: 2284 normal: 2284 anomaly: 0
+size: 2715 normal: 2215 anomaly: 500
+0.1
+2284 2715
+size: 2284 normal: 2284 anomaly: 0
+size: 2715 normal: 2215 anomaly: 500
+0.3
+2284 2715
+size: 2284 normal: 2284 anomaly: 0
+size: 2715 normal: 2215 anomaly: 500
+0.5
+2479 2520
+size: 2479 normal: 2284 anomaly: 195
+size: 2520 normal: 2215 anomaly: 305

@@ -1,0 +1,4 @@
+1
+1499 3500
+size: 1499 normal: 0 anomaly: 1499
+size: 3500 normal: 3499 anomaly: 1

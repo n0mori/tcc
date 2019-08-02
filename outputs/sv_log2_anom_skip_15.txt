@@ -1,0 +1,4 @@
+1
+735 4264
+size: 735 normal: 0 anomaly: 735
+size: 4264 normal: 4250 anomaly: 14

@@ -1,0 +1,4 @@
+1
+1070 3929
+size: 1070 normal: 0 anomaly: 1070
+size: 3929 normal: 3507 anomaly: 422

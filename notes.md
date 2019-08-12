@@ -15,7 +15,7 @@ O resultado é esperado, na verdade, com o jeito que estão sendo feitos os veto
 ## Próximos passos
 - [x] ~~Testar o word2vec na mão, é só isso que fizeram no act2vec.~~
 - [x] ~~Não utilizar XES, importar os csvs que eu fiz.~~
-- [] Criar uma base de teste? Nào foi feito, talvez não seja feito
-- [] Testar mais parâmetros do Word2Vec, talvez usar o Doc2Vec
-- [] Testar mais parâmetros da OCSVM, mas acho que os dados não estão bem separados
+- [ ] ~~Criar uma base de teste? Nào foi feito, talvez não seja feito~~ Na verdade, fazer holdout 70/30, 10 vezes.
+- [ ] Testar mais parâmetros do Word2Vec, talvez usar o Doc2Vec
+- [ ] Testar mais parâmetros da OCSVM, mas acho que os dados não estão bem separados
 - [x] Testar supervisionado e comparar os resultados

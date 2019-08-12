@@ -54,7 +54,8 @@ def supervised(log_name, vectors, train, test, normal_traces, labels, output_fil
           anom_checked.count(False), 
           len(normal_checked), 
           normal_checked.count(True), 
-          normal_checked.count(False), file=output_file, sep=",")
+          normal_checked.count(False),
+          -1, file=output_file, sep=",")
 
 
 def batch(output_name):
@@ -68,9 +69,9 @@ def batch(output_name):
         if filename == "xes": continue
 
         vectors = get_traces("logs/" + filename + ".csv")
+        shuffle(vectors)
         v = create_vectors("models_size16/" + filename + ".model", vectors)
 
-        shuffle(v)
 
         limit = int(len(vectors) * 0.7)
         train, test = v[:limit], v[limit:]

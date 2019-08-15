@@ -1,4 +1,0 @@
-1
-999 4000
-size: 999 normal: 0 anomaly: 999
-size: 4000 normal: 4000 anomaly: 0

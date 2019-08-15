@@ -1,4 +1,0 @@
-1
-423 4576
-size: 423 normal: 0 anomaly: 423
-size: 4576 normal: 4254 anomaly: 322

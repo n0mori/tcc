@@ -1,4 +1,0 @@
-1
-147 4852
-size: 147 normal: 0 anomaly: 147
-size: 4852 normal: 4749 anomaly: 103

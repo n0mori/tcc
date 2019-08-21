@@ -24,6 +24,7 @@ def average():
     files = [open(f"{dir}acc{i}.csv", "r") for i in range(1, 11)]
     readers = [csv.reader(f, delimiter=',') for f in files]
     with open(f"{dir}avg.csv", "w+") as output:
+        print('pn,anom,qty,method,avg', file=output)
         while True:
             try:
                 rows = [next(row) for row in readers]
@@ -33,7 +34,11 @@ def average():
             method = rows[0][1] + rows[0][2] if rows[0][1] == "oc" else rows[0][1]
             average = sum(accuracies) / len(accuracies)
             average = round(average, 2)
-            print(rows[0][0], method, average, sep=',', file=output)
+            if rows[0][0] == 'log1' or rows[0][0] == 'log2':
+                print(rows[0][0], '', '', method, average, sep=',', file=output)
+            else:
+                parts = rows[0][0].split('_')
+                print(parts[0], parts[2], parts[3], method, average, sep=',', file=output)
 
 
 average()
